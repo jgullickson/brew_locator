@@ -1,38 +1,178 @@
-.App {
+html {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 65vh;
+}
+
+.marker-icon {
+  background-position: center;
+  background-size: 22px 22px;
+  border-radius: 50%;
+  height: 22px;
+  left: 4px;
+  position: absolute;
   text-align: center;
+  top: 3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 22px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.marker {
+  height: 30px;
+  width: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.marker-content {
+  background: #c30b82;
+  border-radius: 50% 50% 50% 0;
+  height: 30px;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.marker-content::before {
+  background: #ffffff;
+  border-radius: 50%;
+  content: "";
+  height: 24px;
+  margin: 3px 0 0 3px;
+  position: absolute;
+  width: 24px;
+}
+
+#settings {
+  height: 30vh;
+  font-family: 'Fjalla One', sans-serif;
+  border-top: 1px solid #909090;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   color: white;
+  background-color: #202020;
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+#settings #button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  #settings #button-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
+}
+
+#settings button {
+  margin-right: 0.5em;
+  white-space: normal;
+}
+
+@media (max-width: 600px) {
+  #settings button {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+}
+
+#map-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#fetchSpinner {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  z-index: 100;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+#map {
+  margin: 0;
+}
+
+#banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5vh;
+  padding: 0.5em;
+  font-family: 'Fjalla One', sans-serif;
+  background-color: #202020;
+  border-bottom: 1px solid #909090;
+}
+
+#banner h1 {
+  display: block;
+  font-size: 3vh;
+  color: #ffc107;
+  margin: 0;
+}
+
+#banner svg {
+  display: block;
+  z-index: 1000;
+}
+
+@-webkit-keyframes spin {
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'Fjalla One';
+  src: url("./fonts/Fjalla_One/FjallaOne-Regular.ttf");
+}
+/*# sourceMappingURL=App.css.map */
