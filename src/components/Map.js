@@ -3,6 +3,8 @@ import React from 'react';
 // import tt from '@tomtom-international/web-sdk-services';
 import tt from '@tomtom-international/web-sdk-maps';
 import { connect } from 'react-redux';
+import store from '../reducers/rootReducer';
+import { toggleDarkMode, setLocation, fetchData } from '../actions';
 
 class Map extends React.Component {
     constructor(props){
@@ -33,8 +35,8 @@ class Map extends React.Component {
     }
 
     populateResults(){
-      console.log(this.props.results)
-      this.props.results.map(result =>{
+      // console.log(this.props.results)
+      this.props.filteredResults.map(result =>{
         // console.log(result.name)
         this.createMarker(
           "https://img.icons8.com/metro/52/000000/beer.png",
@@ -70,7 +72,7 @@ class Map extends React.Component {
 
     componentDidMount(){
       this.mapInit();
-      // this.populateResults()
+      store.dispatch(fetchData())
     }
     componentDidUpdate(){
       this.mapInit()
@@ -88,10 +90,10 @@ class Map extends React.Component {
   }
 
   const mapState = (state) => {
-    const { mode, user_geo, results, isFetching } = state
+    const { mode, user_geo, filteredResults, isFetching } = state
       //console.log(user_geo)
     return (
-      { mode, user_geo, results, isFetching }
+      { mode, user_geo, filteredResults, isFetching }
     )
   }
   

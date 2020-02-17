@@ -83,6 +83,10 @@ html {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -93,9 +97,20 @@ html {
 
 @media (max-width: 600px) {
   #settings button {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+#settings select {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #settings select {
+    margin: 0;
+    width: 100%;
+    background-color: white;
   }
 }
 

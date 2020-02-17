@@ -2,7 +2,14 @@
 export const SET_LOCATION = 'SET_LOCATION';
 export const TOGGLE_DARK = 'TOGGLE_DARK';
 export const CLEAR_RESULTS = 'CLEAR_RESULTS';
-export const POPULATE_RESULTS = 'POPULATE_RESULTS'
+export const POPULATE_RESULTS = 'POPULATE_RESULTS';
+export const REQUEST_LOCATION = 'REQUEST_LOCATION';
+export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
+export const FILTER_RESULTS = 'FILTER_RESULTS';
+export const SELECT_STATE = 'SELECT_STATE';
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const FETCH_DATA = 'FETCH_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
 
 //ACTION CREATORS
 export const setLocation = (loc) => {
@@ -12,6 +19,31 @@ export const setLocation = (loc) => {
       lon: loc.coords.longitude,
       lat: loc.coords.latitude
     }
+  }
+}
+
+//updateLocation
+
+export const updateLocation = (loc) => {
+  return function(dispatch){
+
+    dispatch(requestLocation())
+
+    dispatch(setLocation(loc))
+
+    dispatch(receiveLocation())
+  }
+}
+
+export const requestLocation = () => {
+  return {
+    type: REQUEST_LOCATION
+  }
+}
+
+export const receiveLocation = () => {
+  return {
+    type: RECEIVE_LOCATION
   }
 }
 
@@ -28,10 +60,6 @@ export const clearResults = () => {
 }
 
 //request, fetch, recieve
-
-export const REQUEST_DATA = 'REQUEST_DATA';
-export const FETCH_DATA = 'FETCH_DATA';
-export const RECEIVE_DATA = 'RECEIVE_DATA';
 
 export const requestData = ()=>{
   return {
@@ -82,4 +110,18 @@ export const fetchData = () => {
         console.log('Oops! There`s an issue with the fetch request defined in actions.js');
       })
     }
+}
+
+export const filterResults = (selectedState) => {
+  return {
+    type: FILTER_RESULTS,
+    selectedState: selectedState
+  }
+}
+
+export const selectState = (selectedState) => {
+  return {
+    type: SELECT_STATE,
+    selectedState: selectedState
+  }
 }
