@@ -72,7 +72,7 @@ class Map extends React.Component {
 
     componentDidMount(){
       this.mapInit();
-      store.dispatch(fetchData())
+      // store.dispatch(fetchData())
     }
     componentDidUpdate(){
       this.mapInit()
