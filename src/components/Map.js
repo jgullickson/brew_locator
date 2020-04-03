@@ -8,6 +8,7 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.populateResults = this.populateResults.bind(this);
+    this.createPopupHTML = this.createPopupHTML.bind(this);
     // this.createMarker = this.createMarker.bind(this)
     this.mapInit = this.mapInit.bind(this);
     this.map = null;
@@ -32,7 +33,44 @@ class Map extends React.Component {
         })
       );
   }
+  createPopupHTML(brewery){
+    /*
+    id: 68
+    name: "Haines Brewing Co"
+    brewery_type: "micro"
+    street: "327 Main St"
+    city: "Haines"
+    state: "Alaska"
+    postal_code: "99827"
+    country: "United States"
+    longitude: "-135.4551927"
+    latitude: "59.2357624"
+    phone: "9077663823"
+    website_url: "http://www.hainesbrewing.com"
+    updated_at: "2018-08-23T23:20:50.755Z"
+    */
 
+    let html = `<div class='popup-container'>`;
+        
+        html+=`<span class='popup-title'>${brewery.name}</span>`;
+
+        html += `<div class='popup-address'>`;
+                  if (brewery.street) html += `<span'>${brewery.street}</span><br>`
+                  if (brewery.state) html +=`<span>${brewery.city}, ${brewery.state}</span>`
+        html +=  `</div>`;
+        
+        if(brewery.phone) html +=`<a class='popup-link' href=tel:${brewery.phone}><i class='material-icons'>phone</i>${brewery.phone}</a>`;
+        
+        if (brewery.website_url) html+=`<a class='popup-link' href=${brewery.website_url}><i class='material-icons'>computer</i>Website</a>`;
+
+        let search_url = encodeURI(`http://www.google.com/search?q=${brewery.name} ${brewery.state}`);
+        html += `<a class='popup-link' href=${search_url}><i class='material-icons'>search</i>More info</a>`
+
+    html+=`</div>`;
+    
+    let popup = new tt.Popup({ offset: 30 }).setHTML(html);
+    return popup
+  }
   populateResults() {
     // console.log(this.props.results)
     this.props.results
@@ -40,15 +78,14 @@ class Map extends React.Component {
       .map(r => {
         this.createMarker(
           "https://img.icons8.com/metro/52/000000/beer.png",
-          //"https://icons8.com/icon/3696/beer">Beer icon by Icons8
           [r.longitude, r.latitude],
           "goldenrod",
-          r.name
+          this.createPopupHTML(r)
         );
         return undefined;
       });
   }
-  createMarker(icon, position, color, popupText) {
+  createMarker(icon, position, color, popup) {
     //code from tomtom to create markers
     let markerElement = document.createElement("div");
     markerElement.className = "marker";
@@ -63,7 +100,6 @@ class Map extends React.Component {
     iconElement.style.backgroundImage = "url(" + icon + ")";
     markerContentElement.appendChild(iconElement);
 
-    let popup = new tt.Popup({ offset: 30 }).setText(popupText);
     // add marker to map
     new tt.Marker({ element: markerElement, anchor: "bottom" })
       .setLngLat(position)

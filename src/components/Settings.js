@@ -11,7 +11,7 @@ class Settings extends React.Component {
     // }
     render(){
       return(
-        <div id='settings'>
+        <div id='settings' className='px-5 py-4'>
           <h3>Settings:</h3>
           <div id='button-container'>
           {/* <button className='btn btn-warning'
@@ -28,6 +28,7 @@ class Settings extends React.Component {
             Jump to My Location
           </button> */}
           <select 
+            // className='custom-select'
             defaultValue='Select State'
             onChange= {(e)=> {
               this.props.selectState(e.target.value);
@@ -35,7 +36,9 @@ class Settings extends React.Component {
                   <option disabled>Select State</option>
                   {this.props.us_states.map((state, index) => <option key={index}>{state.state}</option>)}
           </select>
-          <button onClick = {this.props.fetchData}>
+          <button 
+            className = 'btn btn-warning mx-2'
+            onClick = {this.props.fetchData}>
             Find Breweries!
           </button>
           </div>

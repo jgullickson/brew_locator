@@ -46,6 +46,26 @@ html {
     position: absolute;
     width: 24px;
   }
+
+  .popup-container {
+  
+  }
+
+  .popup-title {
+    font-size: 1rem;
+    display: block;
+    font-weight: bold;
+  }
+
+  .popup-link {
+    display: block;
+    font-size: 1rem;
+    i {
+      margin: 0.2em;
+      font-size: 1em;
+      vertical-align: middle;
+    }
+  }
   
   #settings {
     height: 30vh;
