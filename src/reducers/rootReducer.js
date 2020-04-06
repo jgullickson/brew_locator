@@ -7,7 +7,7 @@ const NIGHT = 'tomtom://vector/1/basic-night';
 
 //initial state
 const initialState = {
-    isFetching: false,
+    isFetching: false, 
     mode: DAY,
     stateList: [],
     us_states: [

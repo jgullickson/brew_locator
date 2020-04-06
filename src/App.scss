@@ -1,5 +1,5 @@
 html {
-    font-family: 'Fjalla One', sans-serif
+    font-family: monospace
   }
   
   #map {
@@ -24,7 +24,7 @@ html {
     height: 30px;
     width: 30px;
   }
-  
+
   .marker-content {
     background: #c30b82;
     border-radius: 50% 50% 50% 0;
@@ -36,7 +36,7 @@ html {
     transform: rotate(-45deg);
     width: 30px;
   }
-  
+
   .marker-content::before {
     background: #ffffff;
     border-radius: 50%;
@@ -125,6 +125,12 @@ html {
     z-index: 100;
     animation: spin 1s linear infinite;
   }
+
+  // @keyframes newSpin {
+  //   to {
+  //     transform: rotateY(360deg)
+  //   }
+  // }
   
   #map {
     margin: 0;
@@ -151,10 +157,6 @@ html {
       display: block;
       z-index: 1000;
     }
-  }
-
-  #main-container {
-    
   }
   
   @keyframes spin {
