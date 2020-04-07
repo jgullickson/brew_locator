@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/images/geohop.svg';
+// import logo2 from '../assets/images/geohop-green-bg.png';
 
 const Banner = () => {
     return (

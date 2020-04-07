@@ -180,18 +180,24 @@ html {
   padding: 0.5em;
   font-family: 'Fjalla One', sans-serif;
   background-color: #202020;
-  border-bottom: 1px solid #909090;
+  -webkit-box-shadow: 0px;
+          box-shadow: 0px;
 }
 
 #banner h1 {
-  display: block;
-  font-size: 3vh;
+  display: inline-block;
+  font-size: 14pt;
   color: #ffc107;
+  vertical-align: baseline;
   margin: 0;
 }
 
 #banner #logo {
-  height: 4vh;
+  height: 15pt;
+  background-color: #64a06c;
+  padding: 0.05em;
+  margin: 0.25em;
+  border-radius: 10%;
 }
 
 @-webkit-keyframes spin {
