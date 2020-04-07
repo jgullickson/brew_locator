@@ -1,4 +1,3 @@
-//ACTIONS
 export const SET_LOCATION = "SET_LOCATION";
 export const TOGGLE_DARK = "TOGGLE_DARK";
 export const CLEAR_RESULTS = "CLEAR_RESULTS";
@@ -11,7 +10,6 @@ export const REQUEST_DATA = "REQUEST_DATA";
 export const FETCH_DATA = "FETCH_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
 
-//ACTION CREATORS
 export const setLocation = loc => {
   return {
     type: SET_LOCATION,
@@ -21,8 +19,6 @@ export const setLocation = loc => {
     }
   };
 };
-
-//updateLocation
 
 export const updateLocation = loc => {
   return function(dispatch) {
@@ -58,8 +54,6 @@ export const clearResults = () => {
   };
 };
 
-//request, fetch, recieve
-
 export const requestData = () => {
   return {
     type: REQUEST_DATA
@@ -73,45 +67,8 @@ export const receiveData = data => {
   };
 };
 
-/*
-Fetches all breweries; 
-Takes a few seconds. 
-For future optimization, consider modifying to only fetch breweries by a specific location, or within a radius of current location (though I'm not sure that the api allows one to specify that);
-*/
-// export const fetchData = () => {
-
-//   return function(dispatch) {
-
-//     dispatch(requestData());
-
-//     let allData = [];
-
-//     async function fetchLoop() {
-
-//       let pages_remain = true;
-//       let currentPage = 0;
-
-//       while (pages_remain === true){
-//           let response = await fetch(`https://api.openbrewerydb.org/breweries?page=${currentPage}`);
-//           let data = await response.json()
-//           if (data.length > 0){
-//             data.map(d => allData.push(d))
-//           } else {
-//             pages_remain = false;
-//           }
-//           currentPage++
-//         }
-//         dispatch(receiveData(allData))
-//         console.log(`fetched data for ${allData.length} breweries`)
-//       }
-//       fetchLoop().catch(error => {
-//         console.error(error);
-//         console.log('Oops! There`s an issue with the fetch request defined in actions.js');
-//       })
-//     }
-// }
-
 export const fetchData = () => {
+  
   return function(dispatch, getState) {
     dispatch(requestData());
 
@@ -119,33 +76,38 @@ export const fetchData = () => {
     const { selectedState } = getState();
 
     async function fetchLoop() {
+
       let pages_remain = true;
+
       //pages 0 and 1 in api are identical
       let currentPage = 1;
+
       while (pages_remain === true) {
+
         let url = `https://api.openbrewerydb.org/breweries?by_state=${selectedState}&per_page=50&page=${currentPage}`;
-        console.log(url)
+      
         let response = await fetch(encodeURI(url));
-        console.log(response)
+       
         let data = await response.json();
-        console.log(data)
+
         if (data.length > 0) {
-          data
-            .map(d => allData.push(d));
+          data.map(d => allData.push(d));
         } else {
           pages_remain = false;
         }
+
         currentPage++;
       }
+
       dispatch(receiveData(allData));
       console.log(`fetched data for ${allData.length} breweries`);
     }
+
     fetchLoop().catch(error => {
       console.error(error);
-      console.log(
-        "Oops! There`s an issue with the fetch request defined in actions.js"
-      );
+      console.log("Oops! There`s an issue with the fetch request defined in actions.js");
     });
+
   };
 };
 

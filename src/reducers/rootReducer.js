@@ -2,13 +2,13 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { TOGGLE_DARK, CLEAR_RESULTS, SET_LOCATION, RECEIVE_DATA, REQUEST_DATA, REQUEST_LOCATION, RECEIVE_LOCATION, FILTER_RESULTS, SELECT_STATE } from '../actions';
 
-const DAY = 'tomtom://vector/1/basic-main';
-const NIGHT = 'tomtom://vector/1/basic-night';
-
-//initial state
 const initialState = {
     isFetching: false, 
-    mode: DAY,
+    darkmode: false,
+    modes: {
+      DAY: 'tomtom://vector/1/basic-main',
+      NIGHT: 'tomtom://vector/1/basic-night'
+    },
     stateList: [],
     us_states: [
       {
@@ -285,26 +285,34 @@ const initialState = {
       lat: null,
       zoom: 0
     }
-  }
+  };
 
 const rootReducer = (state = initialState, action) => {
+
     switch (action.type){
+
       case TOGGLE_DARK:
-        if (state.mode === DAY){
-          return Object.assign({}, state, {mode: NIGHT});
-        } else if (state.mode === NIGHT){
-          return Object.assign({}, state, {mode: DAY});
+        if (state.darkmode === false){
+
+          return Object.assign({}, state, {darkmode: true});
+
+        } else if (state.darkmode === true){
+
+          return Object.assign({}, state, {darkmode: false});
+
         }
         break;
+
       case CLEAR_RESULTS:
-        return Object.assign({}, state, {results: []})
-        //break;
+        return Object.assign({}, state, {results: []});
+  
       case REQUEST_LOCATION: 
         return (Object.assign({}, state,
             {
               isFetching: true
             }
-          ))
+          ));
+
       case SET_LOCATION:
         return (
             Object.assign({}, state, 
@@ -317,47 +325,45 @@ const rootReducer = (state = initialState, action) => {
           }
         )
         );
+
         case RECEIVE_LOCATION: 
-        return (Object.assign({}, state,
+          return (Object.assign({}, state,
             {
               isFetching: false
             }
-          ))
-        //break;
-      case REQUEST_DATA:
-         // console.log('reducer says: data requested')
-         return Object.assign({}, state, {isFetching: true})
-        //break;
-      case RECEIVE_DATA:
-        return Object.assign({}, state, 
-          {
-            results: action.results, 
-            isFetching: false,
-            stateList: action.results.map(res => res.state).filter((value, index, self)=>self.indexOf(value) === index ),
-          });
-        //break;
-      case SELECT_STATE:
-        console.log(action.selectedState)
-        let state_geo_data = state.us_states.filter(s => s.state === action.selectedState)[0];
-        return (Object.assign({}, state, 
-          {
-            selectedState: action.selectedState,
-            geo: {
-              lat: state_geo_data.latitude,
-              lon: state_geo_data.longitude,
-              zoom: 5
-            }
-          }))
-      case FILTER_RESULTS: 
-          console.log('filtering!!')
-          console.log(state.selectedState)
+          ));
+
+        case REQUEST_DATA:
+          return Object.assign({}, state, {isFetching: true});
+
+        case RECEIVE_DATA:
+          return Object.assign({}, state, 
+            {
+              results: action.results, 
+              isFetching: false,
+              stateList: action.results.map(res => res.state).filter((value, index, self)=>self.indexOf(value) === index ),
+            });
+
+        case SELECT_STATE:
+          let state_geo_data = state.us_states.filter(s => s.state === action.selectedState)[0];
+          return (Object.assign({}, state, 
+            {
+              selectedState: action.selectedState,
+              geo: {
+                lat: state_geo_data.latitude,
+                lon: state_geo_data.longitude,
+                zoom: 5
+              }
+            }));
+
+        case FILTER_RESULTS:
           return (Object.assign({}, state,
             {
               filteredResults: state.results.filter(res => res.state === state.selectedState)
             }
-            ))
-      default:
-        return state;
+            ));
+        default:
+          return state;
     }
   }
 

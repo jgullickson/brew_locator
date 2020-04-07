@@ -47,10 +47,6 @@ html {
     width: 24px;
   }
 
-  .popup-container {
-  
-  }
-
   .popup-title {
     font-size: 1rem;
     display: block;
@@ -82,30 +78,32 @@ html {
       display: flex;
       padding: 0;
       flex-direction: row;
-      // justify-content: left;
+
       @media (max-width: 600px){
         justify-content: center;
         flex-direction: column;
       }
+
     }
     button {
       margin-right: 0.5em;
       white-space: normal;
+
       @media (max-width: 600px){
-      // height: 100px;
-      margin: 0;
-      width: 100%;
-      // border-radius: 50%;
+        margin: 0;
+        width: 100%;
       }
+
     }
     select {
       display: block;
+
       @media (max-width: 600px){
-        // height: 100px;
         margin: 0;
         width: 100%;
         background-color: white;
-        }
+      }
+
     }
   }
   
@@ -125,12 +123,6 @@ html {
     z-index: 100;
     animation: spin 1s linear infinite;
   }
-
-  // @keyframes newSpin {
-  //   to {
-  //     transform: rotateY(360deg)
-  //   }
-  // }
   
   #map {
     margin: 0;
@@ -169,6 +161,5 @@ html {
     font-family: 'Fjalla One';
     src: url('./fonts/Fjalla_One/FjallaOne-Regular.ttf')
   }
-  
   
    
