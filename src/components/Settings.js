@@ -20,7 +20,7 @@ class Settings extends React.Component {
           <button 
             className = 'btn btn-warning mx-2'
             onClick = {this.props.fetchData}>
-            Find Breweries!
+            Show Breweries!
           </button>
           </div>
         </div>
