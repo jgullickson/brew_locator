@@ -50,7 +50,6 @@ class Map extends React.Component {
     return html;
   }
   populateResults() {
-    //  "https://img.icons8.com/metro/52/000000/beer.png"
     this.props.results
       .filter(r => r.longitude !== null && r.latitude !== null)
       .map(r => {
