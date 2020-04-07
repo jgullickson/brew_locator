@@ -184,9 +184,8 @@ html {
   margin: 0;
 }
 
-#banner svg {
-  display: block;
-  z-index: 1000;
+#banner #logo {
+  height: 4vh;
 }
 
 @-webkit-keyframes spin {
