@@ -1,6 +1,6 @@
 {
   "name": "geo-hop",
-  "homepage": "https://geohop.herokuapp.com",
+  "homepage": "/build/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
