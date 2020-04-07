@@ -11,7 +11,7 @@ Integrates [Leaflet.js](https://leafletjs.com/) with [OpenBreweryDB API](https:/
  - Bootstrap
 
 ## Usage
-There is a live demo of the app available at https://geo-hop.herokuapp.com
+Check out the [live demo](https://geohop.herokuapp.com) on Heroku.
 
 Alternatively, to clone the respository and run the app via a live development server:
 
