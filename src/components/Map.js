@@ -1,6 +1,8 @@
 import React from "react";
-import tt from "@tomtom-international/web-sdk-maps";
 import { connect } from "react-redux";
+import L from 'leaflet';
+import markerIcon from '../assets/images/geohop-marker.svg';
+import markerShadow from '../assets/images/leaflet/marker-shadow.png';
 
 class Map extends React.Component {
   constructor(props) {
@@ -8,27 +10,23 @@ class Map extends React.Component {
     this.populateResults = this.populateResults.bind(this);
     this.createPopupHTML = this.createPopupHTML.bind(this);
     this.mapInit = this.mapInit.bind(this);
+    this.mapUpdateView = this.mapUpdateView.bind(this);
     this.map = null;
   }
   mapInit() {
-    //initialize tomtom map
-    tt.setProductInfo(this.props.name, this.props.version);
-    this.map = tt
-      .map({
-        key: this.props.token,
-        container: "map",
-        style: this.props.darkmode === true ? this.props.modes.NIGHT : this.props.modes.DAY,
-        center: [this.props.geo.lon, this.props.geo.lat],
-        zoom: this.props.geo.zoom
-      })
-      .addControl(
-        new tt.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true
-          },
-          trackUserLocation: true
-        })
-      );
+    this.map = L.map('map').setView([this.props.geo.lat, this.props.geo.lon], this.props.geo.zoom);
+    // let map = L.map('map').setView([this.props.geo.lat, this.props.geo.lon], 4);
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/dark-v10',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoianRndWxsaWNrc29uIiwiYSI6ImNrOHBkc3BkZDA3bGgzZXBkYzg3OG55dnUifQ._aiBtIEwpmpTDFs9Vpb91Q'
+      }).addTo(this.map);
+  }
+  mapUpdateView(){
+    this.map.setView([this.props.geo.lat, this.props.geo.lon], this.props.geo.zoom);
   }
   createPopupHTML(brewery){
     let html = `<div class='popup-container'>`;
@@ -49,49 +47,43 @@ class Map extends React.Component {
 
     html+=`</div>`;
     
-    let popup = new tt.Popup({ offset: 30 }).setHTML(html);
-    return popup;
+    return html;
   }
   populateResults() {
+    //  "https://img.icons8.com/metro/52/000000/beer.png"
     this.props.results
       .filter(r => r.longitude !== null && r.latitude !== null)
       .map(r => {
         this.createMarker(
-          "https://img.icons8.com/metro/52/000000/beer.png",
-          [r.longitude, r.latitude],
-          "goldenrod",
+          [r.latitude, r.longitude],
           this.createPopupHTML(r)
         );
         return undefined;
       });
   }
-  createMarker(icon, position, color, popup) {
+  createMarker(latlon, popup) {
 
-    let markerElement = document.createElement("div");
-      markerElement.className = "marker";
+    var myIcon = L.icon({
+      iconUrl: markerIcon,
+      iconSize: [38, 95],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowUrl: markerShadow,
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+  });
 
-    let markerContentElement = document.createElement("div");
-      markerContentElement.className = "marker-content";
-      markerContentElement.style.backgroundColor = color;
-      markerElement.appendChild(markerContentElement);
+    let marker = L.marker(latlon, {icon: myIcon}).addTo(this.map);
+    
+    marker.bindPopup(popup)
 
-    let iconElement = document.createElement("div");
-      iconElement.className = "marker-icon";
-      iconElement.style.backgroundImage = "url(" + icon + ")";
-      markerContentElement.appendChild(iconElement);
-
-    // add marker to map
-    new tt.Marker({ element: markerElement, anchor: "bottom" })
-      .setLngLat(position)
-      .setPopup(popup)
-      .addTo(this.map);
   }
 
   componentDidMount() {
     this.mapInit();
   }
   componentDidUpdate() {
-    this.mapInit();
+    this.mapUpdateView();
     this.populateResults();
   }
   render() {

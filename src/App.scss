@@ -145,9 +145,12 @@ html {
       margin: 0;
      }
     
-    svg {
-      display: block;
-      z-index: 1000;
+    // svg {
+    //   display: block;
+    //   z-index: 1000;
+    // }
+    #logo {
+      height: 4vh;
     }
   }
   

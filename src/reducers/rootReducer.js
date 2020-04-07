@@ -4,11 +4,6 @@ import { TOGGLE_DARK, CLEAR_RESULTS, SET_LOCATION, RECEIVE_DATA, REQUEST_DATA, R
 
 const initialState = {
     isFetching: false, 
-    darkmode: false,
-    modes: {
-      DAY: 'tomtom://vector/1/basic-main',
-      NIGHT: 'tomtom://vector/1/basic-night'
-    },
     stateList: [],
     us_states: [
       {
@@ -281,9 +276,10 @@ const initialState = {
       zoom: 0
     },
     geo: {
-      lon: null,
-      lat: null,
-      zoom: 0
+      // approximate geographic center of united states
+      lon: -95.7129,
+      lat: 37.0902,
+      zoom: 4
     }
   };
 

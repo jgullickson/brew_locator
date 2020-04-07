@@ -1,16 +1,19 @@
 # Brew Locator
 
-Integrates [TomTom Maps SDK](https://developer.tomtom.com/products/maps-sdk?gclid=EAIaIQobChMIgoiogc_M6AIVaf7jBx3aBwreEAAYASAAEgIha_D_BwE) with [OpenBreweryDB API](https://www.openbrewerydb.org/) to deliver an interactive map of breweries by location.
+Integrates [Leaflet.js](https://leafletjs.com/) with [OpenBreweryDB API](https://www.openbrewerydb.org/) to deliver an interactive map of breweries by location.
 
 ## Key Dependencies
- - TomTom Maps SDK for web
+ - Leaflet.js
+ - Mapbox
  - React
  - Redux
  - OpenBreweryDB
  - Bootstrap
 
 ## Usage
-At this time, the app has not been deployed, but you can run it locally via a development server.
+There is a live demo of the app available at https://geo-hop.herokuapp.com
+
+Alternatively, to clone the respository and run the app via a live development server:
 
 ```bash
 git clone https://github.com/jgullickson/brew_locator.git
@@ -19,7 +22,7 @@ npm install
 npm start
 ```
 
-![app screenshot](app_screenshot_brew_locator.png)
+![app screenshot showing a map with marker icons indicating brewery locations](geohop-screenshot-1.png)
 
 ### Development Notes:
 Current implementation allows user to select state (e.g. 'Minnesota') and display breweries in that state.
