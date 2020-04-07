@@ -22,7 +22,7 @@ npm install
 npm start
 ```
 
-<!-- ![app screenshot](app_screenshot_brew_locator.png) -->
+![app screenshot showing a map with marker icons indicating brewery locations](geohop-screenshot-1.png)
 
 ### Development Notes:
 Current implementation allows user to select state (e.g. 'Minnesota') and display breweries in that state.
