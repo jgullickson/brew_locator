@@ -348,7 +348,7 @@ const rootReducer = (state = initialState, action) => {
               geo: {
                 lat: state_geo_data.latitude,
                 lon: state_geo_data.longitude,
-                zoom: 5
+                zoom: 6
               }
             }));
 
