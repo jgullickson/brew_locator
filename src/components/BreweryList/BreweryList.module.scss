@@ -1,0 +1,122 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+.brewery-list {
+    color: $light;
+    background-color: $dark;
+    overflow: hidden;
+
+    h3 {
+        font-family: $font-primary;
+        margin: 0;
+        padding: 1.1rem;
+        @media (max-width: 600px) {
+            padding: 0.75rem;
+        }
+    }
+
+    ul {
+        display: block;
+        list-style: none;
+        overflow: scroll;
+        background-color: $light;
+        color: $dark;
+        height: 100%;
+        padding: 0 0 3em 0;
+    }
+
+    li {
+
+        padding: 0;
+
+        button {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 1.1rem;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $theme-green;
+                color: $light;
+            }
+
+            div {
+                text-align: left;
+            }
+
+            small, span {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        padding-bottom: 5em;
+        z-index: 2000;
+    }
+}
+
+.mobile-list-toggle {
+    height: 3.5rem;
+    border-radius: 0px !important;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 600px) {
+        visibility: visible;
+    }
+
+    span, i {
+        vertical-align: middle;
+    }
+}
+
+.icon {
+    display: block;
+    height: 2.5em;
+    margin-right: 0.5em;
+}
+
+.modal-html-title {
+  font-size: 1rem;
+  display: block;
+  font-weight: bold;
+}
+
+.modal-html-notice {
+    // color: $lightgrey;
+}
+
+.modal-html-link {
+  display: block;
+  font-size: 1.2rem;
+  margin: 0.1em 0;
+  i {
+    margin: 0.2em;
+    font-size: 1em;
+    vertical-align: middle;
+  }
+}
+
+.modal-html-container {
+    padding: 0.5em;
+    text-align: left;
+}
+
+.modal-html-address {
+    font-size: 1.2rem;
+    padding: 0.5em 0;
+}

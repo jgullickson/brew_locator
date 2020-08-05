@@ -7,11 +7,17 @@
     "npm": "6.13.4"
   },
   "dependencies": {
+    "@popperjs/core": "^2.4.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@turf/bbox": "^6.0.1",
+    "@turf/buffer": "^5.1.5",
+    "@turf/helpers": "^6.1.4",
     "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1",
     "leaflet": "^1.6.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.1.3",
