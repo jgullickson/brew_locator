@@ -1,5 +1,5 @@
 ### Development Notes:
-This branch will add new features which allow users to search for breweries within a radius of their geolocation, among other features and restyling/refactoring. Leverages Mapbox reverse geocoding API and Turf.js. See screenshots / clone and run locally for preview.
+This branch adds new features which allow users to search for breweries within a radius of their geolocation, among other features and restyling/refactoring. Leverages Mapbox reverse geocoding API and Turf.js. See screenshots / clone and run locally for preview.
 
 # Brew Locator
 
@@ -29,4 +29,4 @@ npm start
 
 ![app screenshot showing a map with marker icons indicating brewery locations](geohop-update-1.png)
 
-![app screenshot showing a map with marker icons indicating brewery locations](geohop-update-2.jpeg)
+![app screenshot showing a map with marker icons indicating brewery locations](geohop-update-2.png)
