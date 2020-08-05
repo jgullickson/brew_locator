@@ -1,3 +1,8 @@
+### Development Notice:
+Current live implementation (`master` branch) is a basic MVP that allows user to select state (e.g. 'Minnesota') and display breweries in that state.
+
+Check out `geolocation_plus` branch for new features under development, most notably one which allows user to search for breweries within a given radius of their geolocation.
+
 # Brew Locator
 
 Integrates [Leaflet.js](https://leafletjs.com/) with [OpenBreweryDB API](https://www.openbrewerydb.org/) to deliver an interactive map of breweries by location.
@@ -24,7 +29,3 @@ npm start
 ```
 
 ![app screenshot showing a map with marker icons indicating brewery locations](geohop-screenshot-1.png)
-
-### Development Notes:
-Current implementation allows user to select state (e.g. 'Minnesota') and display breweries in that state.
-Future feature may allow user to filter breweries by radius of current gps location.
