@@ -1,6 +1,3 @@
-### Development Notes:
-This branch adds new features which allow users to search for breweries within a radius of their geolocation, among other features and restyling/refactoring. Leverages Mapbox reverse geocoding API and Turf.js. See screenshots / clone and run locally for preview.
-
 # Brew Locator
 
 Integrates [Leaflet.js](https://leafletjs.com/) with [OpenBreweryDB API](https://www.openbrewerydb.org/) to deliver an interactive map of breweries by location.
