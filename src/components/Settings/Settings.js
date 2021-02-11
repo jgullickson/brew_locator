@@ -27,13 +27,13 @@ class Settings extends React.Component {
           title: 'Near Me',
           mode: 'by_geo'
         },
-        {
-          title: 'By Name',
-          mode: 'by_name'
-        }
+        // {
+        //   title: 'By Name',
+        //   mode: 'by_name'
+        // }
       ],
       searchBox: "",
-      searchRadius: 0
+      searchRadius: 5
     }
 
   }
@@ -100,7 +100,10 @@ class Settings extends React.Component {
                     aria-describedby="selectHelp"
                     defaultValue='Select State'
                     onChange={(e) => {
-                      this.props.selectState(e.target.value);
+
+                      this.props.selectState(e.target.value)
+                      
+
                     }}>
                     <option disabled>Select State</option>
                     {this.props.us_states.map((state, index) => <option key={index}>{state.state}</option>)}
@@ -121,17 +124,22 @@ class Settings extends React.Component {
               <>
                 <div className="form-group">
                   <label htmlFor="searchRadius">Search Radius</label>
-                  <input className="form-control" id="searchRadius" type="number" min="1" max="50" onChange={this.handleSearchRadius}></input>
+                  <input className="form-control" id="searchRadius" type="number" min="1" max="50" onChange={this.handleSearchRadius} value={this.state.searchRadius}></input>
                 </div>
               <button
                 className='btn btn-warning'
                   onClick={async () => {
 
-                    await this.props.getUserLocation();
+                    try {
+                      await this.props.getUserLocation();
 
-                    await this.props.fetchDataByGeo(this.state.searchRadius);
+                      await this.props.fetchDataByGeo(this.state.searchRadius);
 
-                    this.props.mapRef.fire('geolocate', this.props.user_geo);
+                      this.props.mapRef.fire('geolocate', this.props.user_geo);
+                    } catch (error){
+                      console.error(error)
+                    }
+                    
 
                   }
                   }>Search</button>
@@ -166,8 +174,8 @@ class Settings extends React.Component {
 };
 
 const mapState = (state) => {
-  const { us_states, mapRef, selectedState, user_geo } = state;
-  return { us_states, mapRef, selectedState, user_geo }
+  const { us_states, mapRef, selectedState, user_geo, geo } = state;
+  return { us_states, mapRef, selectedState, user_geo, geo }
 };
 
 const mapDispatch = (dispatch) => {

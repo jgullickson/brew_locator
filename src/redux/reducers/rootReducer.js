@@ -389,6 +389,9 @@ const rootReducer = (state = initialState, action) => {
 
     case SELECT_STATE:
       let state_geo_data = state.us_states.filter(s => s.state === action.selectedState)[0];
+
+      state.mapRef.fire('selected-state', [state_geo_data.latitude, state_geo_data.longitude]);
+
       return (Object.assign({}, state,
         {
           selectedState: action.selectedState,

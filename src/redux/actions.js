@@ -192,11 +192,13 @@ export const handleGeoError = (error) => {
   // not perfect; revisit this function / error handling for this feature
   Swal.fire({
     title: 'Error',
-    html: `<h3>${ error.error_description }</h3><br><p>There was an error when getting your geolocation. Please try again.</p>`,
+    html: `<h3>${ error.error_description }</h3><br><p>There was an error when getting your geolocation. Please make sure geolocation is enabled in your browser, then refresh the page and try again.</p>`,
     icon: 'error',
     confirmButtonColor: colors['theme-green'],
-    confirmButtonText: 'CLOSE',
+    confirmButtonText: 'REFRESH',
     background: colors.light
+  }).then(()=>{
+    window.location.reload()
   })
 }
 

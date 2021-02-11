@@ -51,6 +51,12 @@ class Map extends React.Component {
       this.map.flyTo([lat, lng], 10);
     })
 
+    this.map.addEventListener('selected-state', (eventData) => {
+      const lat = eventData[0];
+      const lng = eventData[1]; 
+      this.map.flyTo([lat, lng], 6);
+    })
+
     this.map.addEventListener('locationfound', (l) => {
       console.log('it worked! location found')
       console.log(l)
