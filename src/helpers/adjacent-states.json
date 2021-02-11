@@ -1,0 +1,510 @@
+{
+    "AL": {
+        "name": "Alabama",
+        "initials": "a",
+        "adjacent": [
+            "FL",
+            "GA",
+            "TN",
+            "MS"
+        ]
+    },
+    "AK": {
+        "name": "Alaska",
+        "initials": "a",
+        "adjacent": []
+    },
+    "AZ": {
+        "name": "Arizona",
+        "initials": "a",
+        "adjacent": [
+            "NM",
+            "UT",
+            "NV",
+            "CA"
+        ]
+    },
+    "AR": {
+        "name": "Arkansas",
+        "initials": "a",
+        "adjacent": [
+            "LA",
+            "MS",
+            "TN",
+            "MO",
+            "OK",
+            "TX"
+        ]
+    },
+    "CA": {
+        "name": "California",
+        "initials": "c",
+        "adjacent": [
+            "AZ",
+            "NV",
+            "OR"
+        ]
+    },
+    "CO": {
+        "name": "Colorado",
+        "initials": "c",
+        "adjacent": [
+            "NM",
+            "OK",
+            "KS",
+            "NE",
+            "WY",
+            "UT"
+        ]
+    },
+    "CT": {
+        "name": "Connecticut",
+        "initials": "c",
+        "adjacent": [
+            "RI",
+            "MA",
+            "NY"
+        ]
+    },
+    "DE": {
+        "name": "Delaware",
+        "initials": "d",
+        "adjacent": [
+            "NJ",
+            "PA",
+            "MD"
+        ]
+    },
+    "FL": {
+        "name": "Florida",
+        "initials": "f",
+        "adjacent": [
+            "GA",
+            "AL"
+        ]
+    },
+    "GA": {
+        "name": "Georgia",
+        "initials": "g",
+        "adjacent": [
+            "SC",
+            "NC",
+            "TN",
+            "AL",
+            "FL"
+        ]
+    },
+    "HI": {
+        "name": "Hawaii",
+        "initials": "h",
+        "adjacent": []
+    },
+    "ID": {
+        "name": "Idaho",
+        "initials": "i",
+        "adjacent": [
+            "WA",
+            "OR",
+            "NV",
+            "UT",
+            "WY",
+            "MT"
+        ]
+    },
+    "IL": {
+        "name": "Illinois",
+        "initials": "i",
+        "adjacent": [
+            "WI",
+            "IA",
+            "MO",
+            "KY",
+            "IN"
+        ]
+    },
+    "IN": {
+        "name": "Indiana",
+        "initials": "i",
+        "adjacent": [
+            "IL",
+            "KY",
+            "OH",
+            "MI"
+        ]
+    },
+    "IA": {
+        "name": "Iowa",
+        "initials": "i",
+        "adjacent": [
+            "MN",
+            "SD",
+            "NE",
+            "MO",
+            "IL",
+            "WI"
+        ]
+    },
+    "KS": {
+        "name": "Kansas",
+        "initials": "k",
+        "adjacent": [
+            "OK",
+            "MO",
+            "NE",
+            "CO"
+        ]
+    },
+    "KY": {
+        "name": "Kentucky",
+        "initials": "k",
+        "adjacent": [
+            "TN",
+            "VA",
+            "WV",
+            "OH",
+            "IN",
+            "IL",
+            "MO"
+        ]
+    },
+    "LA": {
+        "name": "Louisiana",
+        "initials": "l",
+        "adjacent": [
+            "MS",
+            "AR",
+            "TX"
+        ]
+    },
+    "ME": {
+        "name": "Maine",
+        "initials": "m",
+        "adjacent": [
+            "NH"
+        ]
+    },
+    "MD": {
+        "name": "Maryland",
+        "initials": "m",
+        "adjacent": [
+            "DE",
+            "PA",
+            "WV",
+            "VA"
+        ]
+    },
+    "MA": {
+        "name": "Massachusetts",
+        "initials": "m",
+        "adjacent": [
+            "NH",
+            "VT",
+            "NY",
+            "CT",
+            "RI"
+        ]
+    },
+    "MI": {
+        "name": "Michigan",
+        "initials": "m",
+        "adjacent": [
+            "WI",
+            "IN",
+            "OH"
+        ]
+    },
+    "MN": {
+        "name": "Minnesota",
+        "initials": "m",
+        "adjacent": [
+            "ND",
+            "SD",
+            "IA",
+            "WI"
+        ]
+    },
+    "MS": {
+        "name": "Mississippi",
+        "initials": "m",
+        "adjacent": [
+            "AL",
+            "TN",
+            "AR",
+            "LA"
+        ]
+    },
+    "MO": {
+        "name": "Missouri",
+        "initials": "m",
+        "adjacent": [
+            "AR",
+            "TN",
+            "KY",
+            "IL",
+            "IA",
+            "NE",
+            "KS",
+            "OK"
+        ]
+    },
+    "MT": {
+        "name": "Montana",
+        "initials": "m",
+        "adjacent": [
+            "ID",
+            "WY",
+            "SD",
+            "ND"
+        ]
+    },
+    "NE": {
+        "name": "Nebraska",
+        "initials": "n",
+        "adjacent": [
+            "KS",
+            "MO",
+            "IA",
+            "SD",
+            "WY",
+            "CO"
+        ]
+    },
+    "NV": {
+        "name": "Nevada",
+        "initials": "n",
+        "adjacent": [
+            "AZ",
+            "UT",
+            "ID",
+            "OR",
+            "CA"
+        ]
+    },
+    "NH": {
+        "name": "New Hampshire",
+        "initials": "nh",
+        "adjacent": [
+            "VT",
+            "MA",
+            "ME"
+        ]
+    },
+    "NJ": {
+        "name": "New Jersey",
+        "initials": "nj",
+        "adjacent": [
+            "NY",
+            "PA",
+            "DE"
+        ]
+    },
+    "NM": {
+        "name": "New Mexico",
+        "initials": "nm",
+        "adjacent": [
+            "TX",
+            "OK",
+            "CO",
+            "AZ"
+        ]
+    },
+    "NY": {
+        "name": "New York",
+        "initials": "ny",
+        "adjacent": [
+            "PA",
+            "NJ",
+            "CT",
+            "MA",
+            "VT"
+        ]
+    },
+    "NC": {
+        "name": "North Carolina",
+        "initials": "nc",
+        "adjacent": [
+            "VA",
+            "TN",
+            "GA",
+            "SC"
+        ]
+    },
+    "ND": {
+        "name": "North Dakota",
+        "initials": "nd",
+        "adjacent": [
+            "MT",
+            "SD",
+            "MN"
+        ]
+    },
+    "OH": {
+        "name": "Ohio",
+        "initials": "o",
+        "adjacent": [
+            "MI",
+            "IN",
+            "KY",
+            "WV",
+            "PA"
+        ]
+    },
+    "OK": {
+        "name": "Oklahoma",
+        "initials": "o",
+        "adjacent": [
+            "TX",
+            "AR",
+            "MO",
+            "KS",
+            "CO",
+            "NM"
+        ]
+    },
+    "OR": {
+        "name": "Oregon",
+        "initials": "o",
+        "adjacent": [
+            "CA",
+            "NV",
+            "ID",
+            "WA"
+        ]
+    },
+    "PA": {
+        "name": "Pennsylvania",
+        "initials": "p",
+        "adjacent": [
+            "OH",
+            "WV",
+            "MD",
+            "DE",
+            "NJ",
+            "NY"
+        ]
+    },
+    "RI": {
+        "name": "Rhode Island",
+        "initials": "ri",
+        "adjacent": [
+            "MA",
+            "CT"
+        ]
+    },
+    "SC": {
+        "name": "South Carolina",
+        "initials": "sc",
+        "adjacent": [
+            "NC",
+            "GA"
+        ]
+    },
+    "SD": {
+        "name": "South Dakota",
+        "initials": "sd",
+        "adjacent": [
+            "NE",
+            "IA",
+            "MN",
+            "ND",
+            "MT",
+            "WY"
+        ]
+    },
+    "TN": {
+        "name": "Tennessee",
+        "initials": "t",
+        "adjacent": [
+            "AL",
+            "GA",
+            "NC",
+            "VA",
+            "KY",
+            "MO",
+            "AR",
+            "MS"
+        ]
+    },
+    "TX": {
+        "name": "Texas",
+        "initials": "t",
+        "adjacent": [
+            "LA",
+            "AR",
+            "OK",
+            "NM"
+        ]
+    },
+    "UT": {
+        "name": "Utah",
+        "initials": "u",
+        "adjacent": [
+            "AZ",
+            "CO",
+            "WY",
+            "ID",
+            "NV"
+        ]
+    },
+    "VT": {
+        "name": "Vermont",
+        "initials": "v",
+        "adjacent": [
+            "NY",
+            "MA",
+            "NH"
+        ]
+    },
+    "VA": {
+        "name": "Virginia",
+        "initials": "v",
+        "adjacent": [
+            "MD",
+            "WV",
+            "KY",
+            "TN",
+            "NC"
+        ]
+    },
+    "WA": {
+        "name": "Washington",
+        "initials": "w",
+        "adjacent": [
+            "OR",
+            "ID"
+        ]
+    },
+    "WV": {
+        "name": "West Virginia",
+        "initials": "wv",
+        "adjacent": [
+            "VA",
+            "MD",
+            "PA",
+            "OH",
+            "KY"
+        ]
+    },
+    "WI": {
+        "name": "Wisconsin",
+        "initials": "w",
+        "adjacent": [
+            "MN",
+            "IA",
+            "IL",
+            "MI"
+        ]
+    },
+    "WY": {
+        "name": "Wyoming",
+        "initials": "w",
+        "adjacent": [
+            "CO",
+            "NE",
+            "SD",
+            "MT",
+            "ID",
+            "UT"
+        ]
+    }
+}

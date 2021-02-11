@@ -1,0 +1,55 @@
+@import '../../styles/colors.scss';
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  // background-color: #353535;
+}
+
+.banner-layout {
+    flex-grow: 1;
+    height: 5vh;
+}
+
+.main-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  height: 95vh;
+  margin: 0;
+}
+
+.flexchild-map {
+  flex-grow: 1;
+}
+
+.flexchild-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  border-right: 1px solid $lightgrey;
+  background-color: $dark-tone;
+//   flex-basis: content;
+}
+
+  @media (max-width: 600px){
+    .main-container {
+      flex-direction: column-reverse;
+    }
+    .banner-layout {
+      height: 5vh;
+    }
+    .flexchild-map {
+      // height: 65vh;
+    }
+    .flexchild-sidebar {
+      width: 100%;
+      height: 30vh;
+      border-right: none;
+      border-top: 1px solid $lightgrey;
+      flex-direction: row;
+    }
+  }

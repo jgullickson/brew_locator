@@ -1,0 +1,17 @@
+// color theme
+$theme-green: #64a06c;
+$dark: #202020;
+$dark-tone: #323841;
+$light: rgb(241, 241, 241);
+$lightgrey: #909090;
+// $notice: rgb(226, 144, 89);
+
+// available in javascript
+:export {
+    theme-green: #64a06c;
+    dark: #202020;
+    dark-tone: #323841;
+    light: rgb(241, 241, 241);
+    lightgrey: #909090;
+    // notice: rgb(226, 86, 86);
+}
